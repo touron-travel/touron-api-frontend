@@ -1,0 +1,129 @@
+<mat-card style="margin: 20px; padding: 20px 80px;">
+  <div class="container">
+    <h1 class="text-center">Country Visa Details</h1>
+  </div>
+
+  <form [formGroup]="visaForm" (ngSubmit)="addVisa()">
+    <div class="row">
+      <div class="col-lg-6">
+        <mat-form-field>
+          <mat-label>Country Name</mat-label>
+          <input type="text" formControlName="countryName" matInput />
+        </mat-form-field>
+        <br />
+
+        <h3>Visa Details for Salary Person</h3>
+        <br />
+        <mat-form-field>
+          <mat-label>Document Required</mat-label>
+          <textarea matInput formControlName="salaryDocsRequired"></textarea>
+        </mat-form-field>
+        <br />
+        <mat-form-field>
+          <mat-label>Submission</mat-label>
+          <textarea matInput formControlName="salarySubmission"></textarea>
+        </mat-form-field>
+        <br />
+        <mat-form-field>
+          <mat-label>Financials</mat-label>
+          <textarea matInput formControlName="salaryFinancials"></textarea>
+        </mat-form-field>
+        <br />
+        <mat-form-field>
+          <mat-label>Photography</mat-label>
+          <textarea matInput formControlName="salaryPhotography"></textarea>
+        </mat-form-field>
+        <br />
+        <mat-form-field>
+          <mat-label>Honeymooners</mat-label>
+          <textarea matInput formControlName="salaryHoneymooners"></textarea>
+        </mat-form-field>
+        <br />
+        <mat-form-field>
+          <mat-label>Appointment</mat-label>
+          <textarea matInput formControlName="salaryAppointment"></textarea>
+        </mat-form-field>
+        <br />
+        <mat-form-field>
+          <mat-label>Duration</mat-label>
+          <textarea matInput formControlName="salaryDuration"></textarea>
+        </mat-form-field>
+        <br />
+      </div>
+      <div class="col-lg-6">
+        <mat-form-field>
+          <mat-label>Image Url</mat-label>
+          <input type="text" formControlName="imageUrl" matInput />
+        </mat-form-field>
+        <br />
+        <h3 style="margin-top: 0px;">Visa Details for Self Employed</h3>
+        <br />
+
+        <mat-form-field>
+          <mat-label>Document Required</mat-label>
+          <textarea
+            matInput
+            formControlName="selfEmployedDocsRequired"
+          ></textarea>
+        </mat-form-field>
+        <br />
+        <mat-form-field>
+          <mat-label>Submission</mat-label>
+          <textarea
+            matInput
+            formControlName="selfEmployedSubmission"
+          ></textarea>
+        </mat-form-field>
+        <br />
+        <mat-form-field>
+          <mat-label>Financials</mat-label>
+          <textarea
+            matInput
+            formControlName="selfEmployedFinancials"
+          ></textarea>
+        </mat-form-field>
+        <br />
+        <mat-form-field>
+          <mat-label>Photography</mat-label>
+          <textarea
+            matInput
+            formControlName="selfEmployedPhotography"
+          ></textarea>
+        </mat-form-field>
+        <br />
+        <mat-form-field>
+          <mat-label>Honeymooners</mat-label>
+          <textarea
+            matInput
+            formControlName="selfEmployedHoneymooners"
+          ></textarea>
+        </mat-form-field>
+        <br />
+        <mat-form-field>
+          <mat-label>Appointment</mat-label>
+          <textarea
+            matInput
+            formControlName="selfEmployedAppointment"
+          ></textarea>
+        </mat-form-field>
+        <br />
+        <mat-form-field>
+          <mat-label>Duration</mat-label>
+          <textarea matInput formControlName="selfEmployedDuration"></textarea>
+        </mat-form-field>
+        <br />
+      </div>
+    </div>
+
+    <div class="button" style="padding-left: 400px;">
+      <button
+        [disabled]="visaForm.invalid"
+        mat-raised-button
+        color="primary"
+        style="padding: 0 10px;"
+      >
+        Save
+      </button>
+    </div>
+  </form>
+</mat-card>

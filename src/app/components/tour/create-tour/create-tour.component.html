@@ -1,0 +1,242 @@
+<mat-card style="margin: 20px;padding:20px 80px">
+<div class="container">
+    <h1 class="text-center">Tour Details</h1>
+</div>
+
+    <form [formGroup]="tourForm" (ngSubmit)="addTour()">
+        <div class="row">
+          <div class="col-lg-4 part1">
+            <mat-form-field >
+              <mat-label>Country Name</mat-label>
+             <mat-select formControlName="countryName" >
+              <mat-option  *ngFor="let country of countryData" [value]="country.countryName" >{{country.countryName}}</mat-option>
+            </mat-select>
+            <!-- <input 
+            type="text"
+            formControlName="cityName" matInput> -->
+            
+            </mat-form-field>
+       <br>
+            <mat-form-field >
+              <mat-label>City Name</mat-label>
+             <mat-select formControlName="cityName" >
+              <mat-option  *ngFor="let city of cityData" [value]="city.cityName" >{{city.cityName}}</mat-option>
+            </mat-select>
+            <!-- <input 
+            type="text"
+            formControlName="cityName" matInput> -->
+            
+            </mat-form-field>
+       <br>
+            <mat-form-field >
+              <mat-label>Tour Name</mat-label>
+                <input 
+              type="text"
+              formControlName="tourName" matInput>
+            </mat-form-field>
+       <br>
+     
+            <mat-form-field >
+              <mat-label>About Tour</mat-label>
+              <textarea matInput  formControlName="aboutTour"></textarea>
+            </mat-form-field>
+            <br>
+            <mat-form-field >
+              <mat-label>Image Url</mat-label>
+              <input 
+              type="text"
+              formControlName="imageUrl" matInput>
+            </mat-form-field>
+       <br>
+
+        <mat-form-field >
+              <mat-label>Tour Inclusions</mat-label>
+              <textarea matInput  formControlName="inclusion"></textarea>
+            </mat-form-field>
+            <br>
+            <mat-form-field >
+              <mat-label>Tour Itinerary</mat-label>
+              <textarea matInput  formControlName="itinerary"></textarea>
+            </mat-form-field>
+            <br>
+            
+          </div>
+          <div class="col-lg-4 part2">
+
+            <mat-form-field >
+              <mat-label>Additional Information</mat-label>
+              <textarea matInput  formControlName="additionalInformation"></textarea>
+            </mat-form-field>
+            <br>
+
+            <mat-form-field >
+              <mat-label>Tour Category</mat-label>
+             <mat-select formControlName="tourCategory" multiple>
+              <mat-option  value="Activities" >Activities</mat-option>
+              <mat-option  value="Attraction" >Attraction</mat-option>
+              <mat-option  value="Tour" >Tour</mat-option>
+              <mat-option  value="Hop On & Off" >Hop On & Off</mat-option>
+              <mat-option  value="Learning" >Learning</mat-option>
+              <mat-option  value="Theme Park" >Theme Park</mat-option>
+              <mat-option  value="Food and Dining"> Food and Dining</mat-option>
+           </mat-select>
+            </mat-form-field>
+            <br>
+            
+           <mat-form-field >
+              <mat-label>Ideal For..</mat-label>
+             <mat-select formControlName="idealType" multiple>
+              <mat-option  value="Family" >Family</mat-option>
+              <mat-option  value="Family and kids" >Family and kids</mat-option>
+              <mat-option  value="Solo" >Solo</mat-option>
+              <mat-option  value="Mature Couple" >Mature Couple</mat-option>
+              <mat-option  value="Young Couple" >Young Couple</mat-option>
+              <mat-option  value="Friends" >Friends</mat-option>
+              <mat-option  value="All Traveller Profile" >All Traveller Profile</mat-option>
+              <mat-option  value="Honeymoon">Honeymoon</mat-option>
+            </mat-select>
+             
+            </mat-form-field>
+       <br>
+
+       <mat-form-field >
+          <mat-label>Tour Type</mat-label>
+          <mat-select formControlName="tourType">
+             <mat-option  value="Full Day Tour" >Full Day Tour</mat-option>
+              <mat-option  value="Half Day Tour" >Half Day Tour</mat-option>
+              <mat-option  value="Night Tour" >Night Tour</mat-option>
+            </mat-select>
+        </mat-form-field>
+      <br>
+     
+       <mat-form-field >
+          <mat-label>Tour Preferance</mat-label>
+          <mat-select formControlName="tourPreferance">
+             <mat-option  value="Private Tour" >Private Tour</mat-option>
+              <mat-option  value="SIC Basis" >SIC Basis</mat-option>
+              <mat-option  value="On Your Own" >On Your Own</mat-option>
+            </mat-select>
+        </mat-form-field>
+      <br>
+     
+           <mat-form-field >
+          <mat-label>Tour cost  for Adult</mat-label>
+          <input 
+          type="number"
+          formControlName="adult" matInput>
+        </mat-form-field>
+      <br>
+      <mat-form-field >
+          <mat-label>Tour cost for children</mat-label>
+          <input 
+          type="number"
+              formControlName="children" placeholder="yes or no..." matInput>
+        </mat-form-field>
+      <br>
+      
+        <mat-form-field >
+              <mat-label>Tour Duration</mat-label>
+             <mat-select formControlName="tourDuration" >
+              <mat-option  *ngFor="let hour of hours" [value]="hour.viewValue" >{{hour.viewValue}}</mat-option>
+            </mat-select>
+            </mat-form-field>
+          <br>
+            
+         
+          </div>
+            <div class="col-lg-4">
+
+              <mat-form-field >
+                <mat-label>Tour Ratings</mat-label>
+                <input 
+                type="text"
+                formControlName="ratings" placeholder="Ex 4.5 / 4 /3" matInput>
+              </mat-form-field>
+            <br>
+              <mat-form-field >
+                <mat-label>Tour Reviews</mat-label>
+                <input 
+                type="text"
+                formControlName="reviews" placeholder="Ex 3000 /200/ 500" matInput>
+              </mat-form-field>
+            <br>
+               <mat-form-field >
+                <mat-label>Pickup Type</mat-label>
+               <mat-select formControlName="pickUpPoint" multiple>
+                <mat-option  value="Hotel Pickup" >Hotel Pickup</mat-option>
+                <mat-option  value="No Pickup" >No Pickup</mat-option>
+                <mat-option  value="Pickup On Request" >Pickup On Request </mat-option>
+                <mat-option  value="Common Point Pickup" >Common Point Pickup</mat-option>
+              </mat-select>
+              </mat-form-field>
+         <br>
+
+         <mat-form-field >
+          <mat-label>Pick Up Available On</mat-label>
+          <mat-select formControlName="pickUpAvailableOn" multiple>
+            <mat-option  value="Morning" >Morning</mat-option>
+            <mat-option  value="Afternoon" >Afternoon</mat-option>
+            <mat-option  value="Evening" >Evening </mat-option>
+            <mat-option  value="Night" >Night</mat-option>
+          </mat-select>
+        </mat-form-field>
+      <br>
+
+      <mat-form-field >
+        <mat-label>Pick Up Time</mat-label>
+        <input 
+        type="text"
+        formControlName="pickUpTime"  matInput>
+      </mat-form-field>
+    <br>
+
+    <mat-form-field >
+      <mat-label>Drop Time</mat-label>
+      <input 
+      type="text"
+      formControlName="dropTime"  matInput>
+    </mat-form-field>
+  <br>
+  
+           <mat-form-field >
+            <mat-label>Trending</mat-label>
+            <mat-select formControlName="trending">
+               <mat-option  value="Yes" >Yes</mat-option>
+                <mat-option  value="No" >No</mat-option>
+              </mat-select>
+          </mat-form-field>
+        <br>
+           <mat-form-field >
+                <mat-label>Reference Link</mat-label>
+                <input 
+                type="text"
+                formControlName="referanceLink"  matInput>
+              </mat-form-field>
+            <br>
+      
+      
+            
+
+
+
+
+
+
+            </div>
+        </div>
+               
+    
+           
+   
+    
+    <div class="button" style="padding-left:400px">
+        <button [disabled]="tourForm.invalid" mat-raised-button color="primary" style="padding: 0 10px">Save</button>
+    </div>
+         
+    </form>
+    
+    </mat-card>
+    
+    
+    
+ 

@@ -1,0 +1,187 @@
+<mat-card class="card">
+
+  <div class="container">
+    <h1 class="">Tour Details</h1>
+</div>
+<div class="search-div">
+    
+  <mat-form-field class="search-form-field" floatLabel="never">
+    <input matInput [(ngModel)]="searchKey" placeholder="Search" autocomplete="off" (keyup)="applyFilter()">
+    <button mat-button matSuffix mat-icon-button aria-label="Clear"*ngIf="searchKey"  (click)="onSearchClear()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+</div>
+
+<table mat-table [dataSource]="tourData" class="mat-elevation-z8 " matSort multiTemplateDataRows>
+
+  <ng-container matColumnDef="no">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>NO</th>
+    <td mat-cell *matCellDef ="let i= dataIndex;">  {{this.paginator.pageIndex == 0 ? i + 1 : 1 + i + this.paginator.pageIndex * this.paginator.pageSize}}</td>
+  </ng-container>
+  <ng-container matColumnDef="countryName">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Country Name</th>
+    <td mat-cell *matCellDef ="let tour"> {{tour.countryName}} </td>
+  </ng-container>
+  <ng-container matColumnDef="cityName">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>City Name</th>
+    <td mat-cell *matCellDef ="let tour"> {{tour.cityName}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="tourName">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Tour Name</th>
+    <td mat-cell *matCellDef ="let tour"> {{tour.tourName}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="aboutTour">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> About Tour</th>
+    <td mat-cell *matCellDef="let tour">{{(tour.aboutTour).slice(0,20)}}...</td>
+  </ng-container>
+
+   <ng-container matColumnDef="idealType">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Ideal For..</th>
+    <td mat-cell *matCellDef="let tour"> {{tour.idealType}} </td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="adult">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Tour cost <br>
+    for Adult</th>
+    <td mat-cell *matCellDef="let tour"> {{tour.tourCost.adult}} </td>
+  </ng-container>
+  <ng-container matColumnDef="children">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Tour cost <br> for children</th>
+    <td mat-cell *matCellDef="let tour"> {{tour.tourCost.children}} </td>
+  </ng-container>
+  <ng-container matColumnDef="reviews">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Tour Reviews</th>
+    <td mat-cell *matCellDef="let tour"> {{tour.reviews}} </td>
+  </ng-container>
+  <ng-container matColumnDef="ratings">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Tour Ratings</th>
+    <td mat-cell *matCellDef="let tour"> {{tour.ratings}} </td>
+  </ng-container>
+  <ng-container matColumnDef="inclusion">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Tour<br> Inclusions</th>
+    <td mat-cell *matCellDef="let tour"> {{tour.inclusion.slice(0,10)}}...</td>
+  </ng-container>
+ 
+  <ng-container matColumnDef="itinerary">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Tour itinerary</th>
+    <td mat-cell *matCellDef="let tour"> {{tour.itinerary.slice(0,10)}}... </td>
+  </ng-container>
+  <ng-container matColumnDef="additionalInformation">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Additional <br> Informtion</th>
+    <td mat-cell *matCellDef="let tour"> {{tour.additionalInformation.slice(0,10)}} </td>
+  </ng-container>
+  <ng-container matColumnDef="pickUpPoint">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Pick Up Point</th>
+    <td mat-cell *matCellDef="let tour"> {{tour.pickUpPoint}} </td>
+  </ng-container>
+  <ng-container matColumnDef="pickUpAvailableOn">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Pick Up <br> Available On</th>
+    <td mat-cell *matCellDef="let tour"> {{tour.pickUpAvailableOn}} </td>
+  </ng-container>
+  <ng-container matColumnDef="pickUpTime">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Pick Up Time</th>
+    <td mat-cell *matCellDef="let tour"> {{tour.pickUpTime}} </td>
+  </ng-container>
+  <ng-container matColumnDef="dropTime">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Drop Time</th>
+    <td mat-cell *matCellDef="let tour"> {{tour.dropTime}} </td>
+  </ng-container>
+  <ng-container matColumnDef="tourType">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Tour Type</th>
+    <td mat-cell *matCellDef="let tour"> {{tour.tourType}} </td>
+  </ng-container>
+  <ng-container matColumnDef="tourPreferance">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Tour Preferance</th>
+    <td mat-cell *matCellDef="let tour"> {{tour.tourPreferance}} </td>
+  </ng-container>
+  <ng-container matColumnDef="tourDuration">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Tour Duartion</th>
+    <td mat-cell *matCellDef="let tour"> {{tour.tourDuration}} </td>
+  </ng-container>
+  <ng-container matColumnDef="tourCategory">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Tour Category</th>
+    <td mat-cell *matCellDef="let tour"> {{tour.tourCategory}} </td>
+  </ng-container>
+
+    <ng-container matColumnDef="trending">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Trending</th>
+    <td mat-cell *matCellDef="let tour"> {{tour.trending}} </td>
+  </ng-container>
+
+    <ng-container matColumnDef="referanceLink">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Referance Link</th>
+    <td mat-cell *matCellDef="let tour"> {{tour.referanceLink.slice(0,10)}}... </td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="imageUrl">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Image Url</th>
+    <td mat-cell *matCellDef="let tour"> <img width="120px" height="50px" style="margin: 5px;" src="{{tour.imageUrl}}" alt=""></td>
+  </ng-container>
+  <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef class="mat-column-right">Actions</th>
+        <td mat-cell *matCellDef="let tour"> 
+            <button mat-button color="primary" (click)="editTour(tour._id)" ><mat-icon>create</mat-icon></button>
+            <button mat-button color="warn" (click)="deleteTour(tour._id)"><mat-icon>delete_forever</mat-icon></button>
+        </td>
+      </ng-container>
+
+     
+      <ng-container matColumnDef="expandedDetail">
+        <td mat-cell *matCellDef="let tour" [attr.colspan]="displayedColumns.length">
+          <div class="example-element-detail"
+               [@detailExpand]="tour == expandedElement ? 'expanded' : 'collapsed'">
+              <div class="alert alert-primary col-lg-8" role="text">
+                
+                <h2 class="font-text-bold text-center">Tour Name : {{tour.tourName}}</h2>
+                <h6 class="font-text-bold">City Name: {{tour.cityName}} </h6>
+              <h6 class="font-text-bold " >About Tour : {{tour.aboutTour}} </h6>
+              <h6 class="font-text-bold " >Adult Cost : {{tour.adult}} </h6>
+              <h6 class="font-text-bold " >Children Cost : {{tour.children}} </h6>
+              <h6 class="font-text-bold " >Ratings : {{tour.ratings}} </h6>
+              <h6 class="font-text-bold " >Reviews : {{tour.reviews}} </h6>
+              <h6 class="font-text-bold " >Tour inclusions: {{tour.inclusion}} </h6>
+              <h6 class="font-text-bold " >Tour itinerary : {{tour.itinerary}} </h6>
+              <h6 class="font-text-bold " >Pick Up Point : {{tour.pickUpPoint}} </h6>
+                <h6 class="font-text-bold">Country Name: {{tour.countryName}} </h6>
+              <h6 class="font-text-bold " >Pick Up Available On : {{tour.pickUpAvailableOn}} </h6>
+              <h6 class="font-text-bold " >Pick Up Time : {{tour.pickUpTime}} </h6>
+              <h6 class="font-text-bold " >Drop Time : {{tour.dropTime}} </h6>
+             
+              <h6 class="font-text-bold " >Tour Type:  {{tour.tourType}} </h6> 
+              <h6 class="font-text-bold " >Tour Duration:  {{tour.tourDuration}} </h6> 
+              <h6 class="font-text-bold " >Tour Category:  {{tour.tourCategory}} </h6> 
+              <h6 class="font-text-bold " >Ideal For:  {{tour.idealType}} </h6> 
+              <h6 class="font-text-bold " >Tour Preferance  :  {{tour.tourPreferance}} </h6> 
+              <h6 class="font-text-bold " >  Additional Information:  {{tour.additionalInformation}} </h6> 
+              <h6 class="font-text-bold " >Trending:  {{tour.trending}} </h6> 
+              <h6 class="font-text-bold " >Referance Link:  {{tour.referanceLink}} </h6> 
+
+              </div>
+          </div>
+        </td>
+      </ng-container> 
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let tour; columns: displayedColumns;"
+            class="example-element-row"
+            [class.example-expanded-row]="expandedElement === tour"
+            (click)="expandedElement = expandedElement === tour ? null : tour">
+        </tr>
+        <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+      </table>
+
+  <!-- <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table> -->
+    <mat-paginator [pageSizeOptions]="[10,20,30,40,60]" showFirstLastButtons [pageSize]="10"></mat-paginator>
+
+
+
+
+    
+</mat-card>

@@ -1,0 +1,80 @@
+table {
+  width: auto;
+  margin:5px;
+}
+
+th{
+    margin: 10px 50px;
+    font-size: 15px;
+
+}
+
+td{
+    margin: 0 30px;
+}
+
+mat-table {
+    overflow: auto;
+    max-height: 700px;
+  }
+/* .search-div{
+    margin: 10px;
+      }
+      .search-form-field{
+          width: 60%;
+          margin-left: 10px;
+          padding: 5px 10px;
+          background-color:whitesmoke;
+          border-radius: 5px;
+          }
+          .search-form-field div.mat-form-field-underline {
+              display: none;
+          }
+          .search-form-field div.mat-form-field-infix{
+              border-top: 0px;
+          }
+          .search-form-field div.mat-form-field-wrapper{
+            padding-bottom: 0px;
+        }
+        .search-form-field div.mat-form-field-suffix button{
+            height: 32px;
+            width: 32px;
+        } */
+/* 
+.table{
+
+    justify-content:space-between;
+    overflow-x: scroll;
+} */
+
+/* ng-container{
+    flex:1;
+    align-self: center;
+} */
+
+
+h6{
+  margin: 10px;
+  line-height: 1.5;
+}
+
+tr.example-detail-row {
+    height: 0;
+  }
+  
+  tr.example-element-row:not(.example-expanded-row):hover {
+    background: whitesmoke;
+  }
+  
+  tr.example-element-row:not(.example-expanded-row):active {
+    background: #efefef;
+  }
+  
+  .example-element-row td {
+    border-bottom-width: 0;
+  }
+  
+  .example-element-detail {
+    overflow: hidden;
+    display: flex;
+  }

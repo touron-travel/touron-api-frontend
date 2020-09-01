@@ -1,0 +1,86 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span style="margin: 0 auto">Tour On Api Management</span>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/" style="color: #fff">Home</a>
+    </mat-nav-list>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/main/dash" style="color: #fff">Dashboard</a>
+    </mat-nav-list>
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-drawer-container class="example-container">
+  <mat-drawer mode="side" class="drawer" opened>
+    <h2>Tour details</h2>
+    <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title> Country </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <mat-nav-list>
+          <a mat-list-item routerLink="/main/createcountry">Add Country</a>
+        </mat-nav-list>
+        <hr />
+        <mat-nav-list>
+          <a mat-list-item routerLink="/main/listcountry">Added Countries</a>
+        </mat-nav-list>
+      </mat-expansion-panel>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title> City </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <mat-nav-list>
+          <a mat-list-item routerLink="/main/createcity">Add City</a>
+        </mat-nav-list>
+        <hr />
+        <mat-nav-list>
+          <a mat-list-item routerLink="/main/listcity">Added Cities</a>
+        </mat-nav-list>
+      </mat-expansion-panel>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title> Tours </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <mat-nav-list>
+          <a mat-list-item routerLink="/main/createtour">Add Tours</a>
+        </mat-nav-list>
+        <hr />
+        <mat-nav-list>
+          <a mat-list-item routerLink="/main/listtour">Added Tours</a>
+        </mat-nav-list>
+      </mat-expansion-panel>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title> Visa Details </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <mat-nav-list>
+          <a mat-list-item routerLink="/main/createvisa">Add Visa Details</a>
+        </mat-nav-list>
+        <hr />
+        <mat-nav-list>
+          <a mat-list-item routerLink="/main/listvisa">Added Details</a>
+        </mat-nav-list>
+      </mat-expansion-panel>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title> Blogs </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <mat-nav-list>
+          <a mat-list-item routerLink="/main/createblog">Add Blog</a>
+        </mat-nav-list>
+        <hr />
+        <mat-nav-list>
+          <a mat-list-item routerLink="/main/listblog">Added Blogs</a>
+        </mat-nav-list>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </mat-drawer>
+  <mat-drawer-content class="drawer-content">
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>

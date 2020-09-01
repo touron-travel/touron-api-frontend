@@ -1,0 +1,116 @@
+<mat-card style="margin: 20px;padding:20px 80px">
+<div class="container">
+    <h1 class="text-center">Edit City Details</h1>
+</div>
+
+    <form [formGroup]="cityForm" (ngSubmit)="updateCity()">
+        <div class="row">
+          <div class="col-lg-6 part1">
+            <mat-form-field >
+              <mat-label>Country Name</mat-label>
+             <mat-select formControlName="countryName">
+              <mat-option  *ngFor="let country of countryData" [value]="country.countryName" >{{country.countryName}}</mat-option>
+            </mat-select>
+            </mat-form-field>
+       <br>
+            <mat-form-field >
+              <mat-label>City Name</mat-label>
+              <input 
+              type="text"
+              formControlName="cityName" matInput>
+            </mat-form-field>
+       <br>
+            <mat-form-field >
+              <mat-label>About City</mat-label>
+              <textarea matInput  formControlName="aboutCity"></textarea>
+            </mat-form-field>
+            <br>
+            <mat-form-field >
+              <mat-label>Image Url</mat-label>
+              <input 
+              type="text"
+              formControlName="imageUrl" matInput>
+            </mat-form-field>
+       <br>
+       <mat-form-field >
+          <mat-label>Ideal Days to Travel</mat-label>
+          <mat-select formControlName="idealDays">
+              <mat-option  *ngFor="let day of days" [value]="day.viewValue" >{{day.viewValue}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+      <br>
+          <mat-form-field >
+          <mat-label>Weather</mat-label>
+          <input 
+          type="text"
+          formControlName="weather" placeholder ="Ex 40 c" matInput>
+        </mat-form-field>
+      <br>
+      
+          </div>
+          <div class="col-lg-6 part2">
+
+      
+      <mat-form-field >
+          <mat-label>Fly Duration</mat-label>
+          <mat-select formControlName="travelDuration">
+              <mat-option  *ngFor="let hour of travelHours" [value]="hour.viewValue" >{{hour.viewValue}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+      <br>
+            <mat-form-field >
+              <mat-label>Latitude</mat-label>
+              <input 
+              type="text"
+              formControlName="latitude" placeholder="Ex 45.901242" matInput>
+            </mat-form-field>
+          <br>
+          <mat-form-field >
+              <mat-label>Longiude</mat-label>
+              <input 
+              type="text"
+              formControlName="longitude"  placeholder="Ex 2.343554" matInput>
+            </mat-form-field>
+          <br>
+          <mat-form-field >
+              <mat-label>Famous Places To Visit</mat-label>
+              <input 
+              type="text"
+              formControlName="famousPlacesToVisit"  matInput>
+            </mat-form-field>
+          <br>
+
+          <mat-form-field >
+            <mat-label>Airport</mat-label>
+           <mat-select formControlName="airportType" >
+            <mat-option  value="Native Airport" >Native Airport</mat-option>
+            <mat-option  value="Nearest Airport" >Nearest Airport</mat-option>
+         </mat-select>
+           
+          </mat-form-field>
+     <br>
+      
+          <mat-form-field >
+              <mat-label>Airport Name</mat-label>
+              <input 
+              type="text"
+              formControlName="airportName"  matInput>
+            </mat-form-field>
+          <br>
+        
+          </div>
+        </div>
+               
+    
+    
+    <div class="button" style="padding-left:400px">
+        <button [disabled]="cityForm.invalid"  mat-raised-button color="primary" style="padding: 0 10px">Save</button>
+    </div>
+         
+    </form>
+    
+    </mat-card>
+    
+    
+    
+ 

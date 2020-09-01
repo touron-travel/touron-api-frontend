@@ -1,0 +1,309 @@
+<mat-card style="margin: 10px; padding: 10px;">
+  <div class="container">
+    <h1 class="text-center">Visa Details</h1>
+  </div>
+
+  <div class="search-div">
+    <mat-form-field class="search-form-field" floatLabel="never">
+      <input
+        matInput
+        [(ngModel)]="searchKey"
+        placeholder="Search"
+        autocomplete="off"
+        (keyup)="applyFilter()"
+      />
+      <button
+        mat-button
+        matSuffix
+        mat-icon-button
+        aria-label="Clear"
+        *ngIf="searchKey"
+        (click)="onSearchClear()"
+      >
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+  <table
+    mat-table
+    [dataSource]="visaData"
+    class="mat-elevation-z8"
+    matSort
+    multiTemplateDataRows
+  >
+    <!-- Position Column -->
+    <ng-container matColumnDef="no">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>No</th>
+      <td mat-cell *matCellDef="let i = dataIndex">
+        {{
+          this.paginator.pageIndex == 0
+            ? i + 1
+            : 1 + i + this.paginator.pageIndex * this.paginator.pageSize
+        }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="countryName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        country Name
+      </th>
+      <td mat-cell *matCellDef="let visa">
+        {{ visa.countryName }}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="imageUrl">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Image</th>
+      <td mat-cell *matCellDef="let visa">
+        <img
+          width="80px"
+          height="60px"
+          style="margin: 5px;"
+          src="{{ visa.imageUrl }}"
+          alt=""
+        />
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="salaryDocsRequired">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        salary <br />
+        Docs Required
+      </th>
+      <td mat-cell *matCellDef="let visa">
+        {{ visa.salaryDocs.salaryDocsRequired.slice(0, 10) }}
+      </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="salarySubmission">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        Salary <br />
+        Submission
+      </th>
+      <td mat-cell *matCellDef="let visa">
+        {{ visa.salaryDocs.salarySubmission.slice(0, 10) }}}...
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="salaryFinancials">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        Salary <br />
+        Financials
+      </th>
+      <td mat-cell *matCellDef="let visa">
+        {{ visa.salaryDocs.salaryFinancials.slice(0, 10) }}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="salaryPhotography">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        Salary <br />
+        Photography
+      </th>
+      <td mat-cell *matCellDef="let visa">
+        {{ visa.salaryDocs.salaryPhotography.slice(0, 10) }}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="salaryAppointment">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        Salary <br />
+        Appointment
+      </th>
+      <td mat-cell *matCellDef="let visa">
+        {{ visa.salaryDocs.salaryAppointment.slice(0, 10) }}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="salaryHoneymooners">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        Salary <br />
+        Honeymooners
+      </th>
+      <td mat-cell *matCellDef="let visa">
+        {{ visa.salaryDocs.salaryHoneymooners.slice(0, 10) }}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="salaryDuration">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        Salary <br />
+        Duration
+      </th>
+      <td mat-cell *matCellDef="let visa">
+        {{ visa.salaryDocs.salaryDuration.slice(0, 10) }}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="selfEmployedDocsRequired">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        self Employ <br />
+        Docs Required
+      </th>
+      <td mat-cell *matCellDef="let visa">
+        {{ visa.selfEmployedDocs.selfEmployedDocsRequired.slice(0, 10) }}
+      </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="selfEmployedSubmission">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        Self employ <br />
+        Submission
+      </th>
+      <td mat-cell *matCellDef="let visa">
+        {{ visa.selfEmployedDocs.selfEmployedSubmission.slice(0, 10) }}}...
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="selfEmployedFinancials">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        Self Employ <br />
+        Financials
+      </th>
+      <td mat-cell *matCellDef="let visa">
+        {{ visa.selfEmployedDocs.selfEmployedFinancials.slice(0, 10) }}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="selfEmployedPhotography">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        Self Employ <br />
+        Photography
+      </th>
+      <td mat-cell *matCellDef="let visa">
+        {{ visa.selfEmployedDocs.selfEmployedPhotography.slice(0, 10) }}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="selfEmployedAppointment">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        Self Employ <br />
+        Appointment
+      </th>
+      <td mat-cell *matCellDef="let visa">
+        {{ visa.selfEmployedDocs.selfEmployedAppointment.slice(0, 10) }}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="selfEmployedHoneymooners">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        Self Employ <br />
+        Honeymooners
+      </th>
+      <td mat-cell *matCellDef="let visa">
+        {{ visa.selfEmployedDocs.selfEmployedHoneymooners.slice(0, 10) }}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="selfEmployedDuration">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        Self Employ <br />
+        Duration
+      </th>
+      <td mat-cell *matCellDef="let visa">
+        {{ visa.selfEmployedDocs.selfEmployedDuration.slice(0, 10) }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef class="mat-column-right">
+        Actions
+      </th>
+      <td mat-cell *matCellDef="let visa">
+        <button mat-button color="primary" (click)="editVisa(visa._id)">
+          <mat-icon>create</mat-icon>
+        </button>
+        <button mat-button color="warn" (click)="deleteVisa(visa._id)">
+          <mat-icon>delete_forever</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="expandedDetail">
+      <td
+        mat-cell
+        *matCellDef="let visa"
+        [attr.colspan]="displayedColumns.length"
+      >
+        <div
+          class="example-element-detail"
+          [@detailExpand]="visa == expandedElement ? 'expanded' : 'collapsed'"
+        >
+          <div class="alert alert-primary col-lg-8" role="text">
+            <h2 class="font-text-bold text-center">
+              Country Name: {{ visa.countryName }}
+            </h2>
+            <h3 class="font-text-bold">
+              Visa Details For Salaried Person
+            </h3>
+
+            <h6 class="font-text-bold">
+              Docs Required : {{ visa.salaryDocs.salaryDocsRequired }}
+            </h6>
+            <h6 class="font-text-bold">
+              Submission : {{ visa.salaryDocs.salarySubmission }}
+            </h6>
+            <h6 class="font-text-bold">
+              Fiancials : {{ visa.salaryDocs.salaryFinancials }}
+            </h6>
+            <h6 class="font-text-bold">
+              Appointment : {{ visa.salaryDocs.salaryAppointment }}
+            </h6>
+            <h6 class="font-text-bold">
+              Photography: {{ visa.salaryDocs.salaryPhotography }}
+            </h6>
+            <h6 class="font-text-bold">
+              Honeymooners : {{ visa.salaryDocs.salaryHoneymooners }}
+            </h6>
+            <h6 class="font-text-bold">
+              Duration :{{ visa.salaryDocs.salaryDuration }}
+            </h6>
+
+            <h3 class="font-text-bold">
+              Visa Details For Self Employed Person
+            </h3>
+            <h6 class="font-text-bold">
+              Docs Required :
+              {{ visa.selfEmployedDocs.selfEmployedDocsRequired }}
+            </h6>
+            <h6 class="font-text-bold">
+              Submission : {{ visa.selfEmployedDocs.selfEmployedSubmission }}
+            </h6>
+            <h6 class="font-text-bold">
+              Fiancials : {{ visa.selfEmployedDocs.selfEmployedFinancials }}
+            </h6>
+
+            <h6 class="font-text-bold">
+              Appointment : {{ visa.selfEmployedDocs.selfEmployedAppointment }}
+            </h6>
+            <h6 class="font-text-bold">
+              Photography: {{ visa.selfEmployedDocs.selfEmployedPhotography }}
+            </h6>
+            <h6 class="font-text-bold">
+              Honeymooners :
+              {{ visa.selfEmployedDocs.selfEmployedHoneymooners }}
+            </h6>
+            <h6 class="font-text-bold">
+              Duration : {{ visa.selfEmployedDocs.selfEmployedDuration }}
+            </h6>
+          </div>
+        </div>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr
+      mat-row
+      *matRowDef="let visa; columns: displayedColumns"
+      class="example-element-row"
+      [class.example-expanded-row]="expandedElement === visa"
+      (click)="expandedElement = expandedElement === visa ? null : visa"
+    ></tr>
+    <tr
+      mat-row
+      *matRowDef="let row; columns: ['expandedDetail']"
+      class="example-detail-row"
+    ></tr>
+  </table>
+
+  <!-- <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table> -->
+  <mat-paginator
+    [pageSizeOptions]="[10, 20, 30, 40]"
+    showFirstLastButtons
+    [pageSize]="10"
+  ></mat-paginator>
+</mat-card>

@@ -1,0 +1,106 @@
+<mat-card style="margin: 20px; padding: 20px 80px;">
+  <div class="container">
+    <h1 class="text-center">Edit Country Details</h1>
+  </div>
+
+  <form [formGroup]="countryForm" (ngSubmit)="updateCountry()">
+    <div class="row">
+      <div class="col-lg-6 part1">
+        <mat-form-field>
+          <mat-label>Country Name</mat-label>
+          <input type="text" formControlName="countryName" matInput />
+        </mat-form-field>
+        <br />
+        <mat-form-field>
+          <mat-label>About Country</mat-label>
+          <textarea matInput formControlName="aboutCountry"></textarea>
+        </mat-form-field>
+        <br />
+        <mat-form-field>
+          <mat-label>Image Url</mat-label>
+          <input type="text" formControlName="imageUrl" matInput />
+        </mat-form-field>
+        <br />
+        <mat-form-field>
+          <mat-label>Ideal Days to Travel</mat-label>
+          <mat-select formControlName="idealDays">
+            <mat-option *ngFor="let day of days" [value]="day.viewValue">{{
+              day.viewValue
+            }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <br />
+        <mat-form-field>
+          <mat-label>Weather</mat-label>
+          <input
+            type="text"
+            formControlName="weather"
+            placeholder="Ex 40 c"
+            matInput
+          />
+        </mat-form-field>
+        <br />
+        <mat-form-field>
+          <mat-label>Visa On Arrival</mat-label>
+          <input
+            type="text"
+            formControlName="onArrival"
+            placeholder="yes or no..."
+            matInput
+          />
+        </mat-form-field>
+        <br />
+      </div>
+      <div class="col-lg-6 part2">
+        <mat-form-field>
+          <mat-label>Visa Cost in Rupees</mat-label>
+          <input type="text" formControlName="cost" matInput />
+        </mat-form-field>
+        <br />
+        <mat-form-field>
+          <mat-label>Currency in words</mat-label>
+          <input
+            type="text"
+            formControlName="currency"
+            placeholder="Euros /dollars /rupees"
+            matInput
+          />
+        </mat-form-field>
+        <br />
+        <mat-form-field>
+          <mat-label>Time Difference</mat-label>
+          <input
+            type="text"
+            formControlName="timeZone"
+            placeholder="ex Ist..."
+            matInput
+          />
+        </mat-form-field>
+        <br />
+        <mat-form-field>
+          <mat-label>Best Time to Visit</mat-label>
+          <mat-select formControlName="bestTimeToVisit" multiple>
+            <mat-option *ngFor="let m of month" [value]="m.viewValue">{{
+              m.viewValue
+            }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <br />
+        <mat-form-field>
+          <mat-label>Major Cities</mat-label>
+          <textarea matInput formControlName="bestPlaces"></textarea>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="button" style="padding-left: 400px;">
+      <button
+        [disabled]="countryForm.invalid"
+        mat-raised-button
+        color="primary"
+        style="padding: 0 10px;"
+      >
+        Save
+      </button>
+    </div>
+  </form>
+</mat-card>

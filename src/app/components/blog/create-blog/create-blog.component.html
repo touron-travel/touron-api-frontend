@@ -1,0 +1,95 @@
+<mat-card style="margin: 20px; padding: 20px 80px">
+  <div class="container">
+    <h1 class="text-center">Blog Details</h1>
+  </div>
+
+  <form [formGroup]="blogForm" (ngSubmit)="addBlog()">
+    <div class="row">
+      <div class="col-lg-6 part1">
+        <mat-form-field>
+          <mat-label>Blog Title</mat-label>
+          <input type="text" formControlName="blogTitle" matInput />
+        </mat-form-field>
+        <br />
+
+        <mat-form-field>
+          <mat-label>Content</mat-label>
+          <textarea matInput formControlName="content"></textarea>
+        </mat-form-field>
+        <br />
+
+        <mat-form-field>
+          <mat-label>Image Url</mat-label>
+          <input type="text" formControlName="imageSrc" matInput />
+        </mat-form-field>
+        <br />
+
+        <mat-form-field>
+          <mat-label>Sub Heading 1</mat-label>
+          <input type="text" formControlName="subHeading1" matInput />
+        </mat-form-field>
+        <br />
+        <mat-form-field>
+          <mat-label>Content 1</mat-label>
+          <textarea matInput formControlName="content1"></textarea>
+        </mat-form-field>
+        <br />
+        <mat-form-field>
+          <mat-label>Image Url 1</mat-label>
+          <input type="text" formControlName="imageSrc1" matInput />
+        </mat-form-field>
+        <br />
+
+        <mat-form-field>
+          <mat-label>Key words</mat-label>
+          <input type="text" formControlName="keywords" matInput />
+        </mat-form-field>
+        <br />
+      </div>
+      <div class="col-lg-6 part1">
+        <mat-form-field>
+          <mat-label>Sub Heading 2</mat-label>
+          <input type="text" formControlName="subHeading2" matInput />
+        </mat-form-field>
+        <br />
+        <mat-form-field>
+          <mat-label>Content 2</mat-label>
+          <textarea matInput formControlName="content2"></textarea>
+        </mat-form-field>
+        <br />
+        <mat-form-field>
+          <mat-label>Image Url 2</mat-label>
+          <input type="text" formControlName="imageSrc2" matInput />
+        </mat-form-field>
+        <br />
+        <mat-form-field>
+          <mat-label>Sub Heading 3</mat-label>
+          <input type="text" formControlName="subHeading3" matInput />
+        </mat-form-field>
+        <br />
+        <mat-form-field>
+          <mat-label>Content 1</mat-label>
+          <textarea matInput formControlName="content3"></textarea>
+        </mat-form-field>
+        <br />
+        <mat-form-field>
+          <mat-label>Image Url 3</mat-label>
+          <input type="text" formControlName="imageSrc3" matInput />
+        </mat-form-field>
+
+        <br />
+      </div>
+    </div>
+
+    <div class="button" style="padding-left: 400px">
+      <button
+        [disabled]="blogForm.invalid"
+        mat-raised-button
+        color="primary"
+        style="padding: 0 10px"
+      >
+        Save
+      </button>
+    </div>
+  </form>
+</mat-card>
