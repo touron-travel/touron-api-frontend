@@ -22,6 +22,11 @@
         </mat-form-field>
         <br />
         <mat-form-field>
+          <mat-label> Country Flag Image Url</mat-label>
+          <input type="text" formControlName="countryFlagImage" matInput />
+        </mat-form-field>
+        <br />
+        <mat-form-field>
           <mat-label>Ideal Days to Travel</mat-label>
           <mat-select formControlName="idealDays">
             <mat-option *ngFor="let day of days" [value]="day.viewValue">{{
@@ -40,6 +45,9 @@
           />
         </mat-form-field>
         <br />
+       
+      </div>
+      <div class="col-lg-6 part2">
         <mat-form-field>
           <mat-label>Visa On Arrival</mat-label>
           <input
@@ -50,8 +58,6 @@
           />
         </mat-form-field>
         <br />
-      </div>
-      <div class="col-lg-6 part2">
         <mat-form-field>
           <mat-label>Visa Cost in Rupees</mat-label>
           <input type="text" formControlName="cost" matInput />

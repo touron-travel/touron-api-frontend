@@ -58,6 +58,8 @@ export class EditTourComponent implements OnInit {
     pickUpAvailableOn: new FormControl('', Validators.required),
     pickUpTime: new FormControl('', Validators.required),
     dropTime: new FormControl('', Validators.required),
+    tourVideoSrc: new FormControl('', Validators.required),
+    videoAuthor: new FormControl('', Validators.required),
 
   });
   
@@ -94,6 +96,8 @@ export class EditTourComponent implements OnInit {
         this.tourForm.get('pickUpAvailableOn').setValue(this.tourData.pickUpAvailableOn)
         this.tourForm.get('pickUpTime').setValue(this.tourData.pickUpTime)
         this.tourForm.get('dropTime').setValue(this.tourData.dropTime)
+        this.tourForm.get('tourVideoSrc').setValue(this.tourData.tourVideoSrc)
+        this.tourForm.get('videoAuthor').setValue(this.tourData.videoAuthor)
     
         this.tourForm.get('tourPreferance').setValue(this.tourData.tourPreferance)
         this.tourForm.get('additionalInformation').setValue(this.tourData.additionalInformation)

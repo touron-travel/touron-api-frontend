@@ -48,6 +48,9 @@ export class TourService {
       pickUpAvailableOn:value.pickUpAvailableOn,
       pickUpTime:value.pickUpTime,
       dropTime:value.dropTime,
+      tourVideoSrc:value.tourVideoSrc,
+      videoAuthor:value.videoAuthor,
+      
     
     };
 
@@ -81,6 +84,8 @@ export class TourService {
       pickUpAvailableOn:value.pickUpAvailableOn,
       pickUpTime:value.pickUpTime,
       dropTime:value.dropTime,
+      tourVideoSrc:value.tourVideoSrc,
+      videoAuthor:value.videoAuthor,
      
     };
 

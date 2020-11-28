@@ -79,6 +79,8 @@ export class CreateCountryComponent implements OnInit {
     timeZone: new FormControl("", Validators.required),
     bestTimeToVisit: new FormControl("", Validators.required),
     bestPlaces: new FormControl("", Validators.required),
+    countryFlagImage: new FormControl("", Validators.required),
+    
   });
 
   ngOnInit(): void {}

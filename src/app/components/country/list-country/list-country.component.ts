@@ -27,7 +27,7 @@ export class ListCountryComponent implements OnInit {
   @ViewChild(MatSort) sort:MatSort
   
   constructor(private snackbar: MatSnackBar, private route:ActivatedRoute,private router: Router, private countryService: CountryService) { }
-  displayedColumns: string[] = ['no','countryName', 'aboutCountry', 'idealDays', 'weather', 'onArrival', 'cost', 'currency',  'bestPlaces','timeZone', 'bestTimeToVisit', 'imageUrl', 'actions'];
+  displayedColumns: string[] = ['no','countryName', 'aboutCountry', 'idealDays', 'weather', 'onArrival', 'cost', 'currency',  'bestPlaces','timeZone', 'bestTimeToVisit', 'imageUrl','countryFlagImage', 'actions'];
 
 
 

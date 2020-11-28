@@ -35,6 +35,7 @@ export class CountryService {
         bestTimeToVisit: value.bestTimeToVisit,
       },
       bestPlaces: value.bestPlaces,
+      countryFlagImage: value.countryFlagImage,
     };
 
     return this.http.post(`${this.uri}/country`, country);
@@ -54,6 +55,8 @@ export class CountryService {
       timeZone: value.timeZone,
       bestTimeToVisit: value.bestTimeToVisit,
       bestPlaces: value.bestPlaces,
+      countryFlagImage: value.countryFlagImage,
+
     };
 
     return this.http.post(`${this.uri}/country/edit/${id}`, country);

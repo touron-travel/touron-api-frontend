@@ -62,6 +62,8 @@ export class EditCountryComponent implements OnInit {
     timeZone : new FormControl('', Validators.required),
     bestTimeToVisit : new FormControl('', Validators.required),
     bestPlaces : new FormControl('', Validators.required),
+    countryFlagImage: new FormControl("", Validators.required),
+
    });
 
   ngOnInit(): void {
@@ -70,7 +72,6 @@ export class EditCountryComponent implements OnInit {
         this.countryService.getCountryById(this.id).subscribe((data)=>{
           this.countryData = data
           console.log(this.countryData)
-
           this.countryForm.get('countryName').setValue(this.countryData.countryName)
           this.countryForm.get('aboutCountry').setValue(this.countryData.aboutCountry)
           this.countryForm.get('idealDays').setValue(this.countryData.idealDays)
@@ -82,6 +83,7 @@ export class EditCountryComponent implements OnInit {
           this.countryForm.get('timeZone').setValue(this.countryData.general.timeZone)
           this.countryForm.get('bestTimeToVisit').setValue(this.countryData.general.bestTimeToVisit)
           this.countryForm.get('bestPlaces').setValue(this.countryData.bestPlaces)
+          this.countryForm.get('countryFlagImage').setValue(this.countryData.countryFlagImage)
         }) 
       })
   }

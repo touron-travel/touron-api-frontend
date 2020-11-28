@@ -48,21 +48,36 @@
               formControlName="imageUrl" matInput>
             </mat-form-field>
        <br>
+       <mat-form-field >
+        <mat-label>Tour Video Source </mat-label>
+        <input 
+        type="text"
+        formControlName="tourVideoSrc" matInput>
+      </mat-form-field>
+ <br>
+      <mat-form-field >
+        <mat-label>Video Author</mat-label>
+        <input 
+        type="text"
+        formControlName="videoAuthor" matInput>
+      </mat-form-field>
+ <br>
+
 
         <mat-form-field >
               <mat-label>Tour Inclusions</mat-label>
               <textarea matInput  formControlName="inclusion"></textarea>
             </mat-form-field>
             <br>
+           
+            
+          </div>
+          <div class="col-lg-4 part2">
             <mat-form-field >
               <mat-label>Tour Itinerary</mat-label>
               <textarea matInput  formControlName="itinerary"></textarea>
             </mat-form-field>
             <br>
-            
-          </div>
-          <div class="col-lg-4 part2">
-
             <mat-form-field >
               <mat-label>Additional Information</mat-label>
               <textarea matInput  formControlName="additionalInformation"></textarea>
@@ -230,7 +245,7 @@
    
     
     <div class="button" style="padding-left:400px">
-        <button [disabled]="tourForm.invalid" mat-raised-button color="primary" style="padding: 0 10px">Save</button>
+        <button  mat-raised-button color="primary" style="padding: 0 10px">Save</button>
     </div>
          
     </form>

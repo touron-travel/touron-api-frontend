@@ -57,6 +57,8 @@ export class CreateTourComponent implements OnInit {
   pickUpAvailableOn: new FormControl('', Validators.required),
   pickUpTime: new FormControl('', Validators.required),
   dropTime: new FormControl('', Validators.required),
+  tourVideoSrc: new FormControl('', Validators.required),
+  videoAuthor: new FormControl('', Validators.required),
 
 
 });
